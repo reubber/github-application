@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-
+import './css/style.css'
 import App from './app'
 
 const renderApp = (NextApp) => {

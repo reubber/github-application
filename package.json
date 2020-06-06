@@ -1,13 +1,21 @@
 {
   "scripts": {
-    "start": "node server.js"
+    "start": "webpack-dashboard -- node server.js",
+    "build": "cross-env NODE_ENV=production webpack --progress --config webpack.prod.config -p",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/react": "^5.3.19",
     "babel-core": "^6.26.3",
     "babel-loader": "^6.4.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.11",
     "eslint": "^7.0.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-standard": "^14.1.1",
@@ -18,9 +26,12 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.1",
     "eslint-plugin-standard": "^4.0.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "raw-loader": "^0.5.1",
     "react-hot-loader": "^3.0.0-beta.2",
     "standard": "^14.3.3",
     "standard-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
     "webpack": "^1.15.0",
     "webpack-dev-server": "^1.16.5",
     "webpack-validator": "^3.0.1"

@@ -3,6 +3,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const validate = require('webpack-validator')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = validate({
   devtool: 'source-map',
@@ -17,8 +18,12 @@ module.exports = validate({
     publicPath: '/static/',
     filename: 'bundle.js'
   },
+  devServer: {
+    inline: false
+  },
 
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins:
+    [new webpack.HotModuleReplacementPlugin(), new ExtractTextPlugin('style.css')],
 
   module: {
     preLoaders: [
@@ -36,6 +41,11 @@ module.exports = validate({
         exclude: /node_modules/,
         include: /src/,
         loader: 'babel'
+      }, {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        include: /src/,
+        loaders: ['style', 'raw']
       }
     ]
   }
